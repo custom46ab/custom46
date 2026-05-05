@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="80" viewBox="0 0 360 80">
+  <rect width="360" height="80" fill="#F2EBE0"/>
+  <!-- left bracket -->
+  <path d="M24 18 L12 18 L12 62 L24 62" stroke="#A84B28" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+  <!-- "custom" -->
+  <text x="34" y="52" font-family="Georgia, serif" font-size="34" font-weight="400" fill="#1F1410" letter-spacing="-0.5">custom</text>
+  <!-- "46" terra -->
+  <text x="200" y="52" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#A84B28" letter-spacing="-1">46</text>
+  <!-- right bracket -->
+  <path d="M248 18 L260 18 L260 62 L248 62" stroke="#A84B28" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+</svg>

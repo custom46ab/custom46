@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             <ul className="space-y-3">
               {[
-                { href: "/", label: "Hem" },
+                { href: "/", label: "Start" },
                 { href: "/tjanster", label: "Tjänster" },
                 { href: "/om-oss", label: "Om oss" },
                 { href: "/kontakt", label: "Kontakt" },
@@ -62,14 +62,6 @@ export default function Footer() {
               Kontakt
             </div>
             <ul className="space-y-3 text-sm" style={{ fontWeight: 300 }}>
-              <li>
-                <a
-                  href="mailto:hej@custom46.se"
-                  className="transition-colors duration-200 hover:text-[#EDE6DE]"
-                >
-                  hej@custom46.se
-                </a>
-              </li>
               <li style={{ color: "#6A5E56" }}>Sverige</li>
             </ul>
           </div>

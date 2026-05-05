@@ -69,7 +69,7 @@ export default function HemPage() {
 
               <AnimatedSection delay={0.28}>
                 <p style={{ fontSize: 15.5, lineHeight: 1.76, color: C.fgMid, maxWidth: 390, fontWeight: 300, marginBottom: 48 }}>
-                  Vi kartlägger var er organisation tappar tid och implementerar lösningar som passar — utan onödigt krångel.
+                  Vi kartlägger var er organisation tappar tid och implementerar lösningar som passar — med återbetalningstid som talar för sig själv.
                 </p>
               </AnimatedSection>
 

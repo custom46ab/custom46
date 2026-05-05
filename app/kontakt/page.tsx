@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const C = {
   bg: "#F2EBE0", bgWarm: "#E8DDD0", bgCard: "#F8F4EF", bgDark: "#1F1410",
@@ -201,20 +201,6 @@ export default function KontaktPage() {
             {/* Right: info */}
             <AnimatedSection direction="right" delay={0.1}>
               <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                {/* Contact */}
-                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "28px 28px" }}>
-                  <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted, marginBottom: 16 }}>
-                    E-post
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div style={{ width: 36, height: 36, background: `rgba(168,75,40,0.08)`, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <Mail size={15} style={{ color: C.terra }} />
-                    </div>
-                    <a href="mailto:hej@custom46.se" style={{ fontSize: 14, color: C.fgMid, fontWeight: 400 }}>
-                      hej@custom46.se
-                    </a>
-                  </div>
-                </div>
 
                 {/* Process */}
                 <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, overflow: "hidden" }}>
