@@ -57,8 +57,16 @@ export default function KontaktPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 800));
-    console.log("Form data:", data);
+    const body = new URLSearchParams({
+      "form-name": "kontakt",
+      ...data,
+    });
+    const res = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString(),
+    });
+    if (!res.ok) throw new Error("Formuläret kunde inte skickas");
     setSubmitted(true);
   };
 
@@ -98,9 +106,14 @@ export default function KontaktPage() {
                 </div>
               ) : (
                 <form
+                  name="kontakt"
                   onSubmit={handleSubmit(onSubmit)}
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                   style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "40px 40px" }}
                 >
+                  <input type="hidden" name="form-name" value="kontakt" />
+                  <input type="hidden" name="bot-field" />
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
                     <div>
                       <label style={labelStyle}>Ditt namn</label>
