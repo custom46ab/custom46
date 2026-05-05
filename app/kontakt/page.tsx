@@ -74,13 +74,13 @@ export default function KontaktPage() {
     <>
       {/* Page header */}
       <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-6">
               <div style={{ width: 28, height: 2, background: C.terra }} />
               <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Kontakt</span>
             </div>
-            <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
+            <h1 style={{ ...serif, fontSize: "clamp(36px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
               Hör av dig
             </h1>
             <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 480, lineHeight: 1.75, fontWeight: 300 }}>
@@ -92,13 +92,13 @@ export default function KontaktPage() {
 
       {/* Contact section */}
       <section style={{ background: C.bg }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
 
             {/* Form */}
             <AnimatedSection direction="left">
               {submitted ? (
-                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "56px 48px", textAlign: "center" }}>
+                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "56px 40px", textAlign: "center" }}>
                   <div style={{ ...serif, fontSize: 18, color: C.fg, marginBottom: 12 }}>Tack för ditt meddelande</div>
                   <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7, fontWeight: 300 }}>
                     Vi återkommer till dig inom kort.
@@ -110,11 +110,11 @@ export default function KontaktPage() {
                   onSubmit={handleSubmit(onSubmit)}
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
-                  style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "40px 40px" }}
+                  style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "32px 28px" }}
                 >
                   <input type="hidden" name="form-name" value="kontakt" />
                   <input type="hidden" name="bot-field" />
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ marginBottom: 20 }}>
                     <div>
                       <label style={labelStyle}>Ditt namn</label>
                       <input
@@ -201,7 +201,6 @@ export default function KontaktPage() {
             {/* Right: info */}
             <AnimatedSection direction="right" delay={0.1}>
               <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-
                 {/* Process */}
                 <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, overflow: "hidden" }}>
                   <div style={{ padding: "16px 24px", borderBottom: `1px solid ${C.border}` }}>

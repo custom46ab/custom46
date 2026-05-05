@@ -36,13 +36,13 @@ export default function OmOssPage() {
     <>
       {/* Page header */}
       <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-6">
               <div style={{ width: 28, height: 2, background: C.terra }} />
               <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Om oss</span>
             </div>
-            <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
+            <h1 style={{ ...serif, fontSize: "clamp(36px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
               Varför vi startade custom46
             </h1>
             <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 520, lineHeight: 1.75, fontWeight: 300 }}>
@@ -54,8 +54,8 @@ export default function OmOssPage() {
 
       {/* Story */}
       <section style={{ background: C.bgWarm, borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
             <AnimatedSection direction="left">
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {[
@@ -69,7 +69,7 @@ export default function OmOssPage() {
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.1}>
-              <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "36px 36px" }}>
+              <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "36px 32px" }}>
                 <p style={{ ...serifIt, fontSize: 18, lineHeight: 1.5, color: C.fg, marginBottom: 16 }}>
                   Det ska kännas tryggt att ta steget — inte som ett projekt man måste orka med.
                 </p>
@@ -84,19 +84,16 @@ export default function OmOssPage() {
 
       {/* Values */}
       <section style={{ background: C.bg, borderTop: `2px solid ${C.fg}` }}>
-        <div
-          className="max-w-6xl mx-auto"
-          style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 72, padding: "64px 24px" }}
-        >
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-[72px] px-5 py-12 md:py-16 lg:px-6">
           <AnimatedSection>
             <div style={{ ...serifIt, fontSize: 14, color: C.terra, paddingTop: 4 }}>Hur vi tänker</div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: C.border, border: `1px solid ${C.border}` }}>
               {values.map((v) => (
                 <div
                   key={v.n}
-                  style={{ background: C.bg, padding: "28px 28px", transition: "background .2s" }}
+                  style={{ background: C.bg, padding: "28px 24px", transition: "background .2s" }}
                   onMouseEnter={e => (e.currentTarget.style.background = C.bgWarm)}
                   onMouseLeave={e => (e.currentTarget.style.background = C.bg)}
                 >
@@ -112,9 +109,9 @@ export default function OmOssPage() {
 
       {/* CTA */}
       <section style={{ background: C.bgDark }}>
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <div className="max-w-6xl mx-auto px-5 py-16 lg:px-6 lg:py-20 text-center">
           <AnimatedSection>
-            <h2 style={{ ...serif, fontSize: "clamp(30px, 4vw, 46px)", lineHeight: 1.08, color: "#EDE6DE", marginBottom: 16, maxWidth: 500, margin: "0 auto 16px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ ...serif, fontSize: "clamp(28px, 4vw, 46px)", lineHeight: 1.08, color: "#EDE6DE", marginBottom: 16, maxWidth: 500, margin: "0 auto 16px", letterSpacing: "-0.02em" }}>
               Vill du veta mer om hur vi arbetar?
             </h2>
             <p style={{ fontSize: 14, color: "#A8998E", maxWidth: 420, margin: "0 auto 36px", lineHeight: 1.75, fontWeight: 300 }}>

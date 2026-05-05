@@ -63,13 +63,13 @@ export default function TjansterPage() {
     <>
       {/* Page header */}
       <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-6">
               <div style={{ width: 28, height: 2, background: C.terra }} />
               <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Tjänster</span>
             </div>
-            <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
+            <h1 style={{ ...serif, fontSize: "clamp(36px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
               Vad vi erbjuder
             </h1>
             <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 520, lineHeight: 1.75, fontWeight: 300 }}>
@@ -81,17 +81,17 @@ export default function TjansterPage() {
 
       {/* Service cards */}
       <section style={{ background: C.bg }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
           <div className="flex flex-col gap-px" style={{ background: C.border }}>
             {services.map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 0.08}>
-                <div style={{ background: C.bg, display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+                <div className="grid grid-cols-1 lg:grid-cols-2" style={{ background: C.bg }}>
                   {/* Left */}
-                  <div style={{ padding: "48px 48px", borderRight: `1px solid ${C.border}` }}>
+                  <div className="border-b lg:border-b-0 lg:border-r" style={{ padding: "36px 28px", borderColor: C.border }}>
                     <div style={{ ...serif, fontSize: 11, color: C.terra, opacity: 0.5, letterSpacing: "0.08em", marginBottom: 20 }}>
                       {service.num}
                     </div>
-                    <h2 style={{ ...serif, fontSize: "clamp(26px, 3vw, 34px)", lineHeight: 1.1, color: C.fg, marginBottom: 8, letterSpacing: "-0.02em" }}>
+                    <h2 style={{ ...serif, fontSize: "clamp(24px, 3vw, 34px)", lineHeight: 1.1, color: C.fg, marginBottom: 8, letterSpacing: "-0.02em" }}>
                       {service.title}
                     </h2>
                     <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.04em", color: C.terra, marginBottom: 20, textTransform: "uppercase" }}>
@@ -101,7 +101,7 @@ export default function TjansterPage() {
                   </div>
 
                   {/* Right */}
-                  <div style={{ padding: "48px 48px", background: C.bgCard }}>
+                  <div style={{ padding: "36px 28px", background: C.bgCard }}>
                     <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: C.terra, marginBottom: 20 }}>
                       Ingår i tjänsten
                     </div>
@@ -129,11 +129,11 @@ export default function TjansterPage() {
 
       {/* FAQ */}
       <section style={{ background: C.bgWarm, borderTop: `1px solid ${C.border}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 py-12 md:py-20 lg:px-6">
           <AnimatedSection>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
               <div>
-                <h2 style={{ ...serif, fontSize: "clamp(26px, 3vw, 34px)", lineHeight: 1.1, color: C.fg, marginBottom: 20, letterSpacing: "-0.02em" }}>
+                <h2 style={{ ...serif, fontSize: "clamp(24px, 3vw, 34px)", lineHeight: 1.1, color: C.fg, marginBottom: 20, letterSpacing: "-0.02em" }}>
                   Måste man ta alla tre stegen?
                 </h2>
                 <p style={{ fontSize: 14, color: C.fgMid, lineHeight: 1.75, fontWeight: 300, marginBottom: 16 }}>
@@ -164,9 +164,9 @@ export default function TjansterPage() {
 
       {/* CTA */}
       <section style={{ background: C.bgDark }}>
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <div className="max-w-6xl mx-auto px-5 py-16 lg:px-6 lg:py-20 text-center">
           <AnimatedSection>
-            <h2 style={{ ...serif, fontSize: "clamp(30px, 4vw, 46px)", lineHeight: 1.08, color: "#EDE6DE", marginBottom: 16, maxWidth: 520, margin: "0 auto 16px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ ...serif, fontSize: "clamp(28px, 4vw, 46px)", lineHeight: 1.08, color: "#EDE6DE", marginBottom: 16, maxWidth: 520, margin: "0 auto 16px", letterSpacing: "-0.02em" }}>
               Redo att se vad som är möjligt?
             </h2>
             <p style={{ fontSize: 14, color: "#A8998E", maxWidth: 420, margin: "0 auto 36px", lineHeight: 1.75, fontWeight: 300 }}>
