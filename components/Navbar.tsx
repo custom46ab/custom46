@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Hem" },
   { href: "/tjanster", label: "Tjänster" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/kontakt", label: "Kontakt" },
@@ -31,29 +30,31 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#1B3A2D] shadow-md"
-          : "bg-[#1B3A2D]"
+          ? "bg-[#F2EBE0]/95 backdrop-blur-sm shadow-sm border-b border-[#D9CEBC]"
+          : "bg-[#F2EBE0] border-b border-[#D9CEBC]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="text-[#F7F5F0] font-bold text-xl tracking-tight hover:opacity-90 transition-opacity"
+          className="font-display text-[#1C1410] text-xl hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "var(--font-display), serif" }}
         >
-          custom46
+          custom<span style={{ color: "#A84B28" }}>46</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-0">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm transition-colors duration-200 ${
+              className={`px-5 h-16 flex items-center text-sm border-l border-[#D9CEBC] transition-colors duration-200 ${
                 pathname === link.href
-                  ? "text-white font-medium"
-                  : "text-[#B8D4C8] hover:text-white"
+                  ? "text-[#1C1410] font-medium bg-[#E8DDD0]"
+                  : "text-[#8A7A70] hover:text-[#1C1410] hover:bg-[#EDE5D5]"
               }`}
+              style={{ fontWeight: pathname === link.href ? 500 : 400 }}
             >
               {link.label}
             </Link>
@@ -62,15 +63,16 @@ export default function Navbar() {
 
         <Link
           href="/kontakt"
-          className="hidden md:inline-flex items-center px-5 py-2 rounded-md bg-[#F7F5F0] text-[#1B3A2D] text-sm font-semibold hover:bg-white transition-colors duration-200"
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-[#A84B28] text-white text-sm hover:bg-[#C96444] transition-colors duration-200"
+          style={{ fontWeight: 500 }}
         >
-          Ta kontakt
+          Boka samtal
         </Link>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-[#F7F5F0] p-1"
+          className="md:hidden text-[#1C1410] p-1"
           aria-label="Öppna meny"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -79,15 +81,15 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-[#1B3A2D] border-t border-[#2A4D3C] px-6 pb-6 pt-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[#F2EBE0] border-t border-[#D9CEBC] px-6 pb-6 pt-4 flex flex-col gap-0">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm py-1 transition-colors ${
+              className={`py-3 text-sm border-b border-[#D9CEBC] transition-colors ${
                 pathname === link.href
-                  ? "text-white font-medium"
-                  : "text-[#B8D4C8] hover:text-white"
+                  ? "text-[#A84B28] font-medium"
+                  : "text-[#8A7A70] hover:text-[#1C1410]"
               }`}
             >
               {link.label}
@@ -95,9 +97,9 @@ export default function Navbar() {
           ))}
           <Link
             href="/kontakt"
-            className="mt-2 inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#F7F5F0] text-[#1B3A2D] text-sm font-semibold"
+            className="mt-4 inline-flex items-center justify-center px-5 py-3 bg-[#A84B28] text-white text-sm font-medium"
           >
-            Ta kontakt
+            Boka samtal
           </Link>
         </div>
       )}

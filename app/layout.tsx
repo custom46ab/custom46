@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, Epilogue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSerifDisplay = DM_Serif_Display({
+  weight: ["400"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const epilogue = Epilogue({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 const geistMono = Geist_Mono({
@@ -26,8 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#F7F5F0]" style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}>
+    <html
+      lang="sv"
+      className={`${dmSerifDisplay.variable} ${epilogue.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body
+        className="min-h-full flex flex-col bg-[#F2EBE0]"
+        style={{ fontFamily: "var(--font-body), system-ui, sans-serif", fontWeight: 300 }}
+      >
         <Navbar />
         <main className="pt-16 flex-1">{children}</main>
         <Footer />

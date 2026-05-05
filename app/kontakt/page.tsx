@@ -5,7 +5,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, CheckCircle2 } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+
+const C = {
+  bg: "#F2EBE0", bgWarm: "#E8DDD0", bgCard: "#F8F4EF", bgDark: "#1F1410",
+  terra: "#A84B28", terraLt: "#C96444", fg: "#1C1410", fgMid: "#483C35",
+  muted: "#8A7A70", border: "#D9CEBC",
+} as const;
+
+const serif = { fontFamily: "var(--font-display), Georgia, serif" } as const;
+const serifIt = { fontFamily: "var(--font-display), Georgia, serif", fontStyle: "italic" } as const;
 
 const schema = z.object({
   name: z.string().min(2, "Namn måste vara minst 2 tecken"),
@@ -16,15 +25,36 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "12px 16px",
+  border: `1px solid ${C.border}`,
+  background: C.bg,
+  color: C.fg,
+  fontSize: 14,
+  fontFamily: "var(--font-body), system-ui, sans-serif",
+  fontWeight: 300,
+  outline: "none",
+  transition: "border-color .2s",
+};
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: 10,
+  fontWeight: 600,
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  color: C.fgMid,
+  marginBottom: 8,
+};
+
 export default function KontaktPage() {
   const [submitted, setSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
     await new Promise((r) => setTimeout(r, 800));
@@ -35,14 +65,17 @@ export default function KontaktPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-[#F7F5F0] border-b border-[#DDD9D1]">
+      <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#3D6B58] mb-4">Kontakt</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A18] mb-5 leading-tight tracking-tight">
+            <div className="flex items-center gap-3 mb-6">
+              <div style={{ width: 28, height: 2, background: C.terra }} />
+              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Kontakt</span>
+            </div>
+            <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
               Låt oss prata
             </h1>
-            <p className="text-lg text-[#6B6B65] max-w-xl leading-relaxed">
+            <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 480, lineHeight: 1.75, fontWeight: 300 }}>
               Fyll i formuläret nedan så hör vi av oss inom en vardag. Inget säljtrick — bara en rak konversation.
             </p>
           </AnimatedSection>
@@ -50,138 +83,156 @@ export default function KontaktPage() {
       </section>
 
       {/* Contact section */}
-      <section className="bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
-            {/* Left: form */}
+      <section style={{ background: C.bg }}>
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+
+            {/* Form */}
             <AnimatedSection direction="left">
               {submitted ? (
-                <div className="bg-white rounded-xl border border-[#DDD9D1] p-10 text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#EAE8E2] flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle2 size={28} className="text-[#3D6B58]" />
-                  </div>
-                  <h2 className="text-xl font-bold text-[#1A1A18] mb-3">Tack för ditt meddelande!</h2>
-                  <p className="text-[#6B6B65] text-sm leading-relaxed">
+                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "56px 48px", textAlign: "center" }}>
+                  <div style={{ ...serif, fontSize: 18, color: C.fg, marginBottom: 12 }}>Tack för ditt meddelande</div>
+                  <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7, fontWeight: 300 }}>
                     Vi läser alla förfrågningar och återkommer till dig inom en vardag.
                   </p>
                 </div>
               ) : (
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="bg-white rounded-xl border border-[#DDD9D1] p-8 md:p-10 space-y-6"
+                  style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "40px 40px" }}
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
                     <div>
-                      <label className="block text-xs font-semibold text-[#1A1A18] uppercase tracking-wider mb-2">
-                        Ditt namn
-                      </label>
+                      <label style={labelStyle}>Ditt namn</label>
                       <input
                         {...register("name")}
                         placeholder="Anna Svensson"
-                        className="w-full px-4 py-3 rounded-md border border-[#DDD9D1] bg-[#F7F5F0] text-[#1A1A18] text-sm placeholder:text-[#B8B4AC] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D] focus:border-transparent transition-all"
+                        style={inputStyle}
+                        onFocus={e => (e.target.style.borderColor = C.terra)}
+                        onBlur={e => (e.target.style.borderColor = C.border)}
                       />
                       {errors.name && (
-                        <p className="mt-1.5 text-xs text-red-600">{errors.name.message}</p>
+                        <p style={{ marginTop: 6, fontSize: 11, color: "#B94040" }}>{errors.name.message}</p>
                       )}
                     </div>
-
                     <div>
-                      <label className="block text-xs font-semibold text-[#1A1A18] uppercase tracking-wider mb-2">
-                        Företag
-                      </label>
+                      <label style={labelStyle}>Företag</label>
                       <input
                         {...register("company")}
                         placeholder="AB Exempelbolaget"
-                        className="w-full px-4 py-3 rounded-md border border-[#DDD9D1] bg-[#F7F5F0] text-[#1A1A18] text-sm placeholder:text-[#B8B4AC] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D] focus:border-transparent transition-all"
+                        style={inputStyle}
+                        onFocus={e => (e.target.style.borderColor = C.terra)}
+                        onBlur={e => (e.target.style.borderColor = C.border)}
                       />
                       {errors.company && (
-                        <p className="mt-1.5 text-xs text-red-600">{errors.company.message}</p>
+                        <p style={{ marginTop: 6, fontSize: 11, color: "#B94040" }}>{errors.company.message}</p>
                       )}
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-[#1A1A18] uppercase tracking-wider mb-2">
-                      E-post
-                    </label>
+                  <div style={{ marginBottom: 20 }}>
+                    <label style={labelStyle}>E-post</label>
                     <input
                       {...register("email")}
                       type="email"
                       placeholder="anna@exempelbolaget.se"
-                      className="w-full px-4 py-3 rounded-md border border-[#DDD9D1] bg-[#F7F5F0] text-[#1A1A18] text-sm placeholder:text-[#B8B4AC] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D] focus:border-transparent transition-all"
+                      style={inputStyle}
+                      onFocus={e => (e.target.style.borderColor = C.terra)}
+                      onBlur={e => (e.target.style.borderColor = C.border)}
                     />
                     {errors.email && (
-                      <p className="mt-1.5 text-xs text-red-600">{errors.email.message}</p>
+                      <p style={{ marginTop: 6, fontSize: 11, color: "#B94040" }}>{errors.email.message}</p>
                     )}
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-[#1A1A18] uppercase tracking-wider mb-2">
-                      Meddelande
-                    </label>
+                  <div style={{ marginBottom: 28 }}>
+                    <label style={labelStyle}>Meddelande</label>
                     <textarea
                       {...register("message")}
                       rows={5}
                       placeholder="Berätta kort om ditt företag och vad du funderar på..."
-                      className="w-full px-4 py-3 rounded-md border border-[#DDD9D1] bg-[#F7F5F0] text-[#1A1A18] text-sm placeholder:text-[#B8B4AC] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D] focus:border-transparent transition-all resize-none"
+                      style={{ ...inputStyle, resize: "none" }}
+                      onFocus={e => (e.target.style.borderColor = C.terra)}
+                      onBlur={e => (e.target.style.borderColor = C.border)}
                     />
                     {errors.message && (
-                      <p className="mt-1.5 text-xs text-red-600">{errors.message.message}</p>
+                      <p style={{ marginTop: 6, fontSize: 11, color: "#B94040" }}>{errors.message.message}</p>
                     )}
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 rounded-md bg-[#1B3A2D] text-[#F7F5F0] text-sm font-semibold hover:bg-[#244d3c] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+                    className="w-full inline-flex items-center justify-center gap-2"
+                    style={{
+                      background: isSubmitting ? C.muted : C.terra,
+                      color: "#F8F4EF",
+                      fontSize: 13,
+                      fontWeight: 500,
+                      padding: "14px 28px",
+                      fontFamily: "var(--font-body), system-ui, sans-serif",
+                      border: "none",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
+                      transition: "background .22s",
+                    }}
+                    onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.background = C.terraLt; }}
+                    onMouseLeave={e => { if (!isSubmitting) e.currentTarget.style.background = C.terra; }}
                   >
                     {isSubmitting ? "Skickar..." : "Skicka meddelande"}
+                    {!isSubmitting && <ArrowRight size={13} />}
                   </button>
                 </form>
               )}
             </AnimatedSection>
 
-            {/* Right: contact info */}
+            {/* Right: info */}
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-xl font-bold text-[#1A1A18] mb-3">Kontaktuppgifter</h2>
-                  <div className="flex items-center gap-3 text-[#6B6B65]">
-                    <div className="w-9 h-9 rounded-lg bg-[#EAE8E2] flex items-center justify-center shrink-0">
-                      <Mail size={16} className="text-[#1B3A2D]" />
+              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                {/* Contact */}
+                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, padding: "28px 28px" }}>
+                  <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted, marginBottom: 16 }}>
+                    E-post
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div style={{ width: 36, height: 36, background: `rgba(168,75,40,0.08)`, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Mail size={15} style={{ color: C.terra }} />
                     </div>
-                    <a
-                      href="mailto:hej@custom46.se"
-                      className="text-sm hover:text-[#1B3A2D] transition-colors"
-                    >
+                    <a href="mailto:hej@custom46.se" style={{ fontSize: 14, color: C.fgMid, fontWeight: 400 }}>
                       hej@custom46.se
                     </a>
                   </div>
                 </div>
 
-                <div className="border-t border-[#DDD9D1] pt-8">
-                  <h3 className="font-bold text-[#1A1A18] mb-3">Vad händer när du hör av dig?</h3>
-                  <ol className="space-y-4">
+                {/* Process */}
+                <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, overflow: "hidden" }}>
+                  <div style={{ padding: "16px 24px", borderBottom: `1px solid ${C.border}` }}>
+                    <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Vad händer när du hör av dig?</span>
+                  </div>
+                  <div>
                     {[
                       "Vi läser ditt meddelande och återkommer inom en vardag",
                       "Vi bokar ett kort samtal för att förstå ditt behov",
                       "Om det verkar finnas en bra match presenterar vi ett förslag",
                     ].map((step, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-[#1B3A2D] text-[#F7F5F0] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                          {i + 1}
-                        </span>
-                        <span className="text-sm text-[#6B6B65] leading-relaxed">{step}</span>
-                      </li>
+                      <div
+                        key={i}
+                        className="flex items-start gap-4"
+                        style={{ padding: "18px 24px", borderBottom: i < 2 ? `1px solid ${C.border}` : "none" }}
+                      >
+                        <div style={{ ...serifIt, fontSize: 18, color: C.terra, opacity: 0.4, flexShrink: 0, lineHeight: 1, paddingTop: 2 }}>
+                          {["I", "II", "III"][i]}
+                        </div>
+                        <span style={{ fontSize: 13, color: C.fgMid, lineHeight: 1.65, fontWeight: 300 }}>{step}</span>
+                      </div>
                     ))}
-                  </ol>
+                  </div>
                 </div>
 
-                <div className="bg-[#1B3A2D] rounded-xl p-7 text-[#B8D4C8]">
-                  <h3 className="text-[#F7F5F0] font-bold mb-2">Inget som binder dig</h3>
-                  <p className="text-sm leading-relaxed">
-                    Det första samtalet är alltid kostnadsfritt och utan förpliktelser. Vi berättar vad vi kan
-                    erbjuda — du bestämmer om det känns rätt.
+                {/* Promise card */}
+                <div style={{ background: C.bgDark, padding: "28px 28px" }}>
+                  <div style={{ ...serif, fontSize: 18, color: "#EDE6DE", marginBottom: 10 }}>Inget som binder dig</div>
+                  <p style={{ fontSize: 13, color: "#A8998E", lineHeight: 1.7, fontWeight: 300 }}>
+                    Det första samtalet är alltid kostnadsfritt och utan förpliktelser. Vi berättar vad vi kan erbjuda — du bestämmer om det känns rätt.
                   </p>
                 </div>
               </div>

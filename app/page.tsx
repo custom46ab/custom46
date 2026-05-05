@@ -2,206 +2,235 @@
 
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, CheckCircle2, BarChart3, Lightbulb, Cog } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const services = [
-  {
-    icon: BarChart3,
-    title: "Nulägesanalys",
-    description:
-      "Vi kartlägger hur ditt företag arbetar idag — vilka processer som är manuella, tidskrävande eller felbenägna.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Lösningsförslag",
-    description:
-      "Utifrån analysen tar vi fram konkreta förslag på AI-verktyg och automatiseringar som passar din verksamhet.",
-  },
-  {
-    icon: Cog,
-    title: "Implementering",
-    description:
-      "Vi bygger och driftsätter lösningarna — och ser till att du och ditt team faktiskt kan använda dem.",
-  },
+const C = {
+  bg: "#F2EBE0",
+  bgWarm: "#E8DDD0",
+  bgCard: "#F8F4EF",
+  bgDark: "#1F1410",
+  terra: "#A84B28",
+  terraLt: "#C96444",
+  fg: "#1C1410",
+  fgMid: "#483C35",
+  muted: "#8A7A70",
+  border: "#D9CEBC",
+  borderW: "#C8BAA8",
+} as const;
+
+const serif = { fontFamily: "var(--font-display), Georgia, serif" } as const;
+const serifIt = { fontFamily: "var(--font-display), Georgia, serif", fontStyle: "italic" } as const;
+
+const steps = [
+  { num: "I", title: "Nulägesanalys", body: "Vi kartlägger era processer och identifierar var effektiviteten brister." },
+  { num: "II", title: "Lösningsförslag", body: "Konkreta förslag anpassade efter just er — inte generiska verktyg." },
+  { num: "III", title: "Implementering", body: "Vi bygger, driftsätter och ser till att det faktiskt används." },
 ];
 
-const benefits = [
-  "Sparar tid på återkommande uppgifter",
-  "Minskar risken för mänskliga fel",
-  "Skalbar lösning som växer med verksamheten",
-  "Ingen onödig teknisk komplexitet",
+const principles = [
+  { n: "i.", title: "Vi börjar med verkligheten", body: "Inte med teknik. Vi förstår era processer innan vi föreslår något som helst." },
+  { n: "ii.", title: "Rätt storlek på lösningen", body: "Ingen onödig komplexitet. Det som byggs ska förvaltas av er — inte av oss." },
+  { n: "iii.", title: "Inga tomma löften", body: "Om något inte är möjligt säger vi det från start. Hellre det än missade förväntningar." },
+  { n: "iv.", title: "Ni äger resultatet", body: "Lösningarna tillhör er. Ingen inlåsning, inga onödiga beroenden till oss." },
 ];
 
 export default function HemPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto px-6 pt-20 pb-24 md:pt-28 md:pb-32 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left: text */}
+      {/* ── HERO ── */}
+      <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
+        <div className="max-w-6xl mx-auto" style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr" }}>
+
+          {/* Left */}
+          <div
+            className="flex flex-col justify-between"
+            style={{ padding: "80px 56px 64px 24px", borderRight: `1px solid ${C.border}`, minHeight: "calc(100vh - 64px)" }}
+          >
             <div>
-              <AnimatedSection delay={0}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAE8E2] border border-[#DDD9D1] text-[#3D6B58] text-xs font-semibold mb-8 tracking-wide">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3D6B58] inline-block" />
-                  AI-automatisering för svenska SME:er
+              <AnimatedSection delay={0.05}>
+                <div className="flex items-center gap-3 mb-12">
+                  <div style={{ width: 36, height: 2, background: C.terra }} />
+                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>
+                    AI-automatisering för svenska SME:er
+                  </span>
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.08}>
-                <h1 className="text-5xl md:text-6xl font-bold text-[#1A1A18] leading-[1.1] tracking-tight mb-6 text-balance">
-                  Praktisk AI som faktiskt fungerar för ditt företag
+              <AnimatedSection delay={0.15}>
+                <h1
+                  style={{ ...serif, fontSize: "clamp(56px, 7vw, 82px)", lineHeight: 0.93, letterSpacing: "-0.025em", color: C.fg, marginBottom: 32 }}
+                >
+                  Auto&shy;mation<br />
+                  som<br />
+                  <span style={{ ...serifIt, color: C.terra }}>faktiskt</span><br />
+                  håller.
                 </h1>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.16}>
-                <p className="text-lg text-[#6B6B65] leading-relaxed mb-10 max-w-lg">
-                  Vi analyserar hur ditt företag arbetar idag, föreslår relevanta AI-lösningar och hjälper dig
-                  att implementera dem — utan krångel och utan tomma löften.
+              <AnimatedSection delay={0.28}>
+                <p style={{ fontSize: 15.5, lineHeight: 1.76, color: C.fgMid, maxWidth: 390, fontWeight: 300, marginBottom: 48 }}>
+                  Vi kartlägger var din organisation tappar tid och bygger de lösningar som faktiskt passar — utan onödig teknik.
                 </p>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.24}>
-                <div className="flex flex-col sm:flex-row gap-3">
+              <AnimatedSection delay={0.38}>
+                <div className="flex items-center gap-6">
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#1B3A2D] text-[#F7F5F0] font-semibold hover:bg-[#244d3c] transition-colors duration-200 text-sm"
+                    className="inline-flex items-center gap-2 text-sm"
+                    style={{ background: C.fg, color: C.bg, fontWeight: 500, padding: "13px 28px", transition: "background .22s" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = C.terra)}
+                    onMouseLeave={e => (e.currentTarget.style.background = C.fg)}
                   >
                     Boka ett samtal
-                    <ArrowRight size={15} />
+                    <ArrowRight size={13} />
                   </Link>
                   <Link
                     href="/tjanster"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-[#DDD9D1] text-[#1A1A18] font-semibold hover:bg-[#EAE8E2] transition-colors duration-200 bg-transparent text-sm"
+                    className="inline-flex items-center gap-2 text-sm"
+                    style={{ color: C.muted, fontWeight: 400, borderBottom: `1px solid ${C.borderW}`, paddingBottom: 2, transition: "color .2s, border-color .2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.color = C.terra; e.currentTarget.style.borderColor = C.terra; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = C.muted; e.currentTarget.style.borderColor = C.borderW; }}
                   >
-                    Våra tjänster
+                    Hur vi arbetar
+                    <ArrowRight size={11} />
                   </Link>
                 </div>
               </AnimatedSection>
             </div>
 
-            {/* Right: abstract product-style visual */}
-            <AnimatedSection delay={0.2} direction="right">
-              <div className="relative w-full max-w-lg ml-auto">
-                {/* Outer shadow card */}
-                <div className="rounded-2xl bg-[#EAE8E2] border border-[#DDD9D1] p-4 shadow-xl shadow-[#1B3A2D]/5">
-                  {/* Inner frame */}
-                  <div className="rounded-xl bg-[#F7F5F0] border border-[#DDD9D1] overflow-hidden">
-                    {/* Top bar */}
-                    <div className="flex items-center gap-2 px-4 py-3 border-b border-[#DDD9D1] bg-white">
-                      <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-[#DDD9D1]" />
-                        <div className="w-3 h-3 rounded-full bg-[#DDD9D1]" />
-                        <div className="w-3 h-3 rounded-full bg-[#DDD9D1]" />
-                      </div>
-                      <div className="flex-1 h-5 rounded bg-[#EAE8E2] max-w-xs mx-auto" />
+            {/* Stats pinned to bottom */}
+            <AnimatedSection delay={0.5}>
+              <div className="flex gap-0 mt-16" style={{ borderTop: `1px solid ${C.border}`, paddingTop: 28 }}>
+                {[
+                  { val: "68%", lbl: "Tidsbesparing i snitt" },
+                  { val: "−82%", lbl: "Färre manuella fel" },
+                  { val: "3 v", lbl: "Till driftsättning" },
+                ].map((s, i) => (
+                  <div key={s.lbl} style={{ flex: 1, ...(i > 0 ? { paddingLeft: 24, borderLeft: `1px solid ${C.border}` } : {}) }}>
+                    <div style={{ ...serif, fontSize: 34, lineHeight: 1, color: C.fg, marginBottom: 4, letterSpacing: "-0.02em" }}>
+                      {s.val}
                     </div>
-
-                    {/* Content area */}
-                    <div className="p-5 space-y-4">
-                      {/* Stats row */}
-                      <div className="grid grid-cols-3 gap-3">
-                        {[
-                          { color: "#1B3A2D", label: "Effektivitet" },
-                          { color: "#3D6B58", label: "Automatiserat" },
-                          { color: "#6B9E8A", label: "Sparat" },
-                        ].map((stat) => (
-                          <div key={stat.label} className="bg-white rounded-lg border border-[#DDD9D1] p-3">
-                            <div
-                              className="w-5 h-5 rounded mb-2"
-                              style={{ backgroundColor: stat.color, opacity: 0.8 }}
-                            />
-                            <div className="h-4 rounded" style={{ backgroundColor: stat.color, opacity: 0.15 }} />
-                            <div className="text-xs text-[#6B6B65] mt-1.5">{stat.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Workflow row */}
-                      <div className="bg-white rounded-lg border border-[#DDD9D1] p-4">
-                        <div className="text-xs font-semibold text-[#1A1A18] mb-3">Arbetsflöde</div>
-                        <div className="flex items-center gap-2">
-                          {["Analys", "Förslag", "Bygg", "Driftsatt"].map((step, i, arr) => (
-                            <div key={step} className="flex items-center gap-2 flex-1">
-                              <div
-                                className={`h-6 rounded text-xs font-medium flex items-center justify-center px-2 flex-1 whitespace-nowrap ${
-                                  i < 3 ? "bg-[#1B3A2D] text-[#F7F5F0]" : "bg-[#EAE8E2] text-[#6B6B65]"
-                                }`}
-                                style={{ fontSize: "10px" }}
-                              >
-                                {step}
-                              </div>
-                              {i < arr.length - 1 && (
-                                <div className="w-3 h-px bg-[#DDD9D1] shrink-0" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Bottom two cards */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="bg-white rounded-lg border border-[#DDD9D1] p-3">
-                          <div className="text-xs font-semibold text-[#1A1A18] mb-2">Tidsbesparing</div>
-                          <div className="space-y-1.5">
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 rounded flex-1 bg-[#1B3A2D] opacity-70" />
-                              <span className="text-xs text-[#6B6B65]">68%</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 rounded w-2/3 bg-[#3D6B58] opacity-50" />
-                              <span className="text-xs text-[#6B6B65]">43%</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white rounded-lg border border-[#DDD9D1] p-3">
-                          <div className="text-xs font-semibold text-[#1A1A18] mb-2">Felfrekvens</div>
-                          <div className="space-y-1.5">
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 rounded w-1/4 bg-[#1B3A2D] opacity-70" />
-                              <span className="text-xs text-[#6B6B65]">-82%</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 rounded w-1/3 bg-[#3D6B58] opacity-50" />
-                              <span className="text-xs text-[#6B6B65]">-57%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <div style={{ fontSize: 11, color: C.muted, fontWeight: 400 }}>{s.lbl}</div>
                   </div>
-                </div>
-
-                {/* Floating badge */}
-                <div className="absolute -bottom-5 -right-3 bg-[#1B3A2D] text-[#F7F5F0] rounded-xl px-4 py-3 shadow-xl shadow-[#1B3A2D]/20">
-                  <div className="text-2xl font-bold leading-none">46</div>
-                  <div className="text-xs text-[#B8D4C8] mt-0.5 font-medium">Custom</div>
-                </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>
+
+          {/* Right panel */}
+          <AnimatedSection delay={0.2} direction="right">
+            <div
+              className="flex flex-col gap-5 justify-center"
+              style={{ background: C.bgWarm, padding: "72px 48px", minHeight: "calc(100vh - 64px)" }}
+            >
+              {/* Pull quote */}
+              <div style={{ background: C.bgCard, borderLeft: `3px solid ${C.terra}`, padding: "36px 32px" }}>
+                <span style={{ ...serif, fontSize: 68, lineHeight: 0.5, color: C.terra, opacity: 0.22, display: "block", marginBottom: 16 }}>&ldquo;</span>
+                <p style={{ ...serifIt, fontSize: 19, lineHeight: 1.45, color: C.fg, marginBottom: 20 }}>
+                  Vi visste att AI kunde hjälpa oss — vi visste bara inte var vi skulle börja. custom46 gav oss klarhet direkt.
+                </p>
+                <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: C.muted }}>
+                  Verksamhetschef, tillverkningsbolag
+                </div>
+              </div>
+
+              {/* Steps card */}
+              <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, overflow: "hidden" }}>
+                <div
+                  className="flex items-center justify-between"
+                  style={{ padding: "14px 24px", borderBottom: `1px solid ${C.border}` }}
+                >
+                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Arbetsprocess</span>
+                  <span style={{ fontSize: 10, fontWeight: 500, color: C.terra, background: `rgba(168,75,40,0.09)`, padding: "3px 10px" }}>3 steg</span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+                  {steps.map((s, i) => (
+                    <div
+                      key={s.num}
+                      style={{ padding: "22px 18px", borderRight: i < 2 ? `1px solid ${C.border}` : "none" }}
+                    >
+                      <div style={{ ...serif, fontSize: 30, lineHeight: 1, color: C.terra, opacity: 0.25, marginBottom: 10 }}>{s.num}</div>
+                      <div style={{ fontSize: 12, fontWeight: 600, color: C.fg, marginBottom: 5 }}>{s.title}</div>
+                      <div style={{ fontSize: 11, color: C.muted, lineHeight: 1.55, fontWeight: 300 }}>{s.body}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Value proposition strip */}
-      <section className="bg-white border-t border-b border-[#DDD9D1]">
-        <div className="max-w-6xl mx-auto px-6 py-16">
+      {/* ── PRINCIPLES STRIP ── */}
+      <section style={{ background: C.bg, borderTop: `2px solid ${C.fg}` }}>
+        <div
+          className="max-w-6xl mx-auto"
+          style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 72, padding: "64px 24px" }}
+        >
           <AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div style={{ ...serifIt, fontSize: 14, color: C.terra, paddingTop: 4 }}>Varför det fungerar</div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
+              {principles.map((p) => (
+                <div
+                  key={p.n}
+                  style={{ background: C.bg, padding: "26px 28px", transition: "background .2s" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = C.bgWarm)}
+                  onMouseLeave={e => (e.currentTarget.style.background = C.bg)}
+                >
+                  <div style={{ ...serifIt, fontSize: 11, color: C.terra, opacity: 0.55, marginBottom: 10 }}>{p.n}</div>
+                  <div style={{ ...serif, fontSize: 19, color: C.fg, marginBottom: 7, lineHeight: 1.15 }}>{p.title}</div>
+                  <div style={{ fontSize: 12.5, color: C.muted, lineHeight: 1.65, fontWeight: 300 }}>{p.body}</div>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── SOCIAL PROOF ── */}
+      <section style={{ background: C.bgWarm, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <AnimatedSection>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A18] mb-5 leading-snug">
+                <div className="flex items-center gap-3 mb-8">
+                  <div style={{ width: 28, height: 1.5, background: C.terra }} />
+                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: C.terra }}>Inte bara ord</span>
+                </div>
+                <h2 style={{ ...serif, fontSize: "clamp(32px, 4vw, 46px)", lineHeight: 1.05, color: C.fg, marginBottom: 20, letterSpacing: "-0.02em" }}>
                   AI behöver inte vara komplext för att vara användbart
                 </h2>
-                <p className="text-[#6B6B65] leading-relaxed">
-                  De flesta AI-satsningar misslyckas inte för att tekniken är svår — utan för att lösningarna
-                  inte passar hur verksamheten faktiskt ser ut. Vi börjar alltid med din verklighet.
+                <p style={{ fontSize: 15, lineHeight: 1.75, color: C.fgMid, fontWeight: 300, marginBottom: 32 }}>
+                  De flesta AI-satsningar misslyckas inte för att tekniken är svår — utan för att lösningarna inte passar hur verksamheten faktiskt ser ut.
                 </p>
+                <Link
+                  href="/om-oss"
+                  className="inline-flex items-center gap-2 text-sm"
+                  style={{ color: C.terra, fontWeight: 500, borderBottom: `1px solid ${C.terra}`, paddingBottom: 2 }}
+                >
+                  Läs mer om hur vi tänker
+                  <ArrowRight size={12} />
+                </Link>
               </div>
-              <div className="space-y-3.5">
-                {benefits.map((b) => (
-                  <div key={b} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#3D6B58] mt-0.5 shrink-0" />
-                    <span className="text-sm text-[#1A1A18] leading-relaxed">{b}</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
+                {[
+                  { val: "100%", lbl: "Fokus på genomförande" },
+                  { val: "0", lbl: "Lösningar byggda på hajp" },
+                  { val: "5–200", lbl: "Anställda hos våra kunder" },
+                ].map((s) => (
+                  <div
+                    key={s.lbl}
+                    className="flex items-center justify-between"
+                    style={{ background: C.bgCard, padding: "24px 28px", transition: "background .2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = C.bg)}
+                    onMouseLeave={e => (e.currentTarget.style.background = C.bgCard)}
+                  >
+                    <span style={{ ...serif, fontSize: 32, color: C.fg, letterSpacing: "-0.02em" }}>{s.val}</span>
+                    <span style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>{s.lbl}</span>
                   </div>
                 ))}
               </div>
@@ -210,96 +239,32 @@ export default function HemPage() {
         </div>
       </section>
 
-      {/* Services overview */}
-      <section className="bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      {/* ── CTA ── */}
+      <section style={{ background: C.bgDark }}>
+        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#3D6B58] mb-3">Hur vi arbetar</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A18] mb-4 tracking-tight">
-                Tre steg, ett tydligt resultat
-              </h2>
-              <p className="text-[#6B6B65] max-w-xl mx-auto leading-relaxed">
-                Vi följer en strukturerad process för att säkerställa att varje lösning är anpassad efter just
-                din verksamhet.
-              </p>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div style={{ width: 28, height: 1, background: C.terra }} />
+              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Redo att komma igång?</span>
+              <div style={{ width: 28, height: 1, background: C.terra }} />
             </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {services.map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <AnimatedSection key={service.title} delay={i * 0.1}>
-                  <div className="bg-white rounded-xl border border-[#DDD9D1] p-8 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-11 h-11 rounded-xl bg-[#EAE8E2] flex items-center justify-center">
-                        <Icon size={20} className="text-[#1B3A2D]" />
-                      </div>
-                      <span className="text-sm font-bold text-[#DDD9D1] tracking-widest">0{i + 1}</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-[#1A1A18] mb-3">{service.title}</h3>
-                    <p className="text-sm text-[#6B6B65] leading-relaxed">{service.description}</p>
-                  </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-
-          <AnimatedSection delay={0.35}>
-            <div className="text-center mt-10">
-              <Link
-                href="/tjanster"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A2D] hover:underline underline-offset-4"
-              >
-                Läs mer om våra tjänster
-                <ArrowRight size={15} />
-              </Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Social proof */}
-      <section className="bg-white border-t border-[#DDD9D1]">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <AnimatedSection>
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="text-6xl text-[#EAE8E2] font-serif mb-4 leading-none select-none">&ldquo;</div>
-              <blockquote className="text-xl md:text-2xl font-medium text-[#1A1A18] leading-snug mb-8 text-balance">
-                Vi visste att AI kunde hjälpa oss — vi visste bara inte var vi skulle börja. custom46 gav oss
-                klarhet direkt.
-              </blockquote>
-              <div className="w-10 h-px bg-[#DDD9D1] mx-auto mb-4" />
-              <div className="text-sm text-[#6B6B65]">
-                Verksamhetschef, tillverkningsföretag i Mellansverige
-              </div>
-              <div className="mt-2 text-xs text-[#3D6B58] font-semibold tracking-wide uppercase">Kund sedan 2024</div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* CTA section */}
-      <section className="bg-[#1B3A2D]">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28 text-center">
-          <AnimatedSection>
-            <p className="text-[#B8D4C8] text-xs uppercase tracking-widest font-semibold mb-5">
-              Redo att komma igång?
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-balance max-w-2xl mx-auto leading-tight">
-              Låt oss prata om vad AI kan göra för din verksamhet
+            <h2
+              style={{ ...serif, fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.05, color: "#EDE6DE", marginBottom: 20, letterSpacing: "-0.02em", maxWidth: 600, margin: "0 auto 20px" }}
+            >
+              Låt oss prata om vad som faktiskt kan förändras
             </h2>
-            <p className="text-[#B8D4C8] max-w-lg mx-auto mb-10 leading-relaxed">
-              Boka ett kostnadsfritt samtal så berättar vi mer om hur vi arbetar och vad som kan vara relevant
-              för just dig.
+            <p style={{ fontSize: 15, color: "#A8998E", maxWidth: 440, margin: "0 auto 40px", lineHeight: 1.75, fontWeight: 300 }}>
+              Boka ett kostnadsfritt samtal — vi ställer frågor, lyssnar och ger en ärlig bild av vad automation kan göra för er.
             </p>
             <Link
               href="/kontakt"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md bg-[#F7F5F0] text-[#1B3A2D] font-semibold hover:bg-white transition-colors duration-200 text-sm"
+              className="inline-flex items-center gap-2 text-sm"
+              style={{ background: C.terra, color: "#F8F4EF", fontWeight: 500, padding: "14px 32px", transition: "background .22s" }}
+              onMouseEnter={e => (e.currentTarget.style.background = C.terraLt)}
+              onMouseLeave={e => (e.currentTarget.style.background = C.terra)}
             >
               Boka ett samtal
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Link>
           </AnimatedSection>
         </div>

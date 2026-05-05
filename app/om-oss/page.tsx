@@ -4,85 +4,93 @@ import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight } from "lucide-react";
 
+const C = {
+  bg: "#F2EBE0", bgWarm: "#E8DDD0", bgCard: "#F8F4EF", bgDark: "#1F1410",
+  terra: "#A84B28", terraLt: "#C96444", fg: "#1C1410", fgMid: "#483C35",
+  muted: "#8A7A70", border: "#D9CEBC",
+} as const;
+
+const serif = { fontFamily: "var(--font-display), Georgia, serif" } as const;
+const serifIt = { fontFamily: "var(--font-display), Georgia, serif", fontStyle: "italic" } as const;
+
 const values = [
   {
+    n: "i.",
     title: "Ärlighet framför imponering",
-    description:
-      "Vi berättar vad som faktiskt är möjligt — inte vad som låter bäst i ett säljsamtal. Om AI inte är rätt lösning för dig just nu säger vi det.",
+    body: "Vi berättar vad som faktiskt är möjligt — inte vad som låter bäst i ett säljsamtal. Om AI inte är rätt lösning för dig just nu säger vi det.",
   },
   {
+    n: "ii.",
     title: "Enkelhet som princip",
-    description:
-      "Den bästa lösningen är den enklaste som faktiskt fungerar. Vi väljer alltid bort onödig komplexitet — den kostar mer och ger sällan mer värde.",
+    body: "Den bästa lösningen är den enklaste som faktiskt fungerar. Vi väljer alltid bort onödig komplexitet — den kostar mer och ger sällan mer värde.",
   },
   {
+    n: "iii.",
     title: "Ditt ägarskap",
-    description:
-      "Lösningarna vi bygger ska du kunna äga, förstå och underhålla. Vi dokumenterar allt och utbildar ditt team — du ska inte vara beroende av oss i det löpande.",
+    body: "Lösningarna vi bygger ska du kunna äga, förstå och underhålla. Vi dokumenterar allt och utbildar ditt team — du ska inte vara beroende av oss i det löpande.",
   },
   {
+    n: "iv.",
     title: "Resultat, inte teknik",
-    description:
-      "Vi är teknikintresserade men inte teknikdrivna. Det som räknas är om din verksamhet faktiskt blir bättre — inte hur avancerat systemet ser ut under huven.",
+    body: "Vi är teknikintresserade men inte teknikdrivna. Det som räknas är om din verksamhet faktiskt blir bättre — inte hur avancerat systemet ser ut under huven.",
   },
+];
+
+const stats = [
+  { val: "100%", lbl: "Fokus på genomförande" },
+  { val: "5–200", lbl: "Anställda hos våra kunder" },
+  { val: "0", lbl: "Lösningar byggda på hajp" },
+  { val: "100%", lbl: "Dokumenterade leveranser" },
 ];
 
 export default function OmOssPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-[#F7F5F0] border-b border-[#DDD9D1]">
+      <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#3D6B58] mb-4">Om oss</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A18] mb-5 leading-tight tracking-tight text-balance">
+            <div className="flex items-center gap-3 mb-6">
+              <div style={{ width: 28, height: 2, background: C.terra }} />
+              <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Om oss</span>
+            </div>
+            <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
               Människorna bakom custom46
             </h1>
-            <p className="text-lg text-[#6B6B65] max-w-2xl leading-relaxed">
-              Vi är ett litet team med djup erfarenhet av verksamhetsutveckling och moderna AI-verktyg. Vi tror att
-              AI kan göra stor skillnad för vanliga företag — om det implementeras på rätt sätt.
+            <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 520, lineHeight: 1.75, fontWeight: 300 }}>
+              Vi är ett litet team med djup erfarenhet av verksamhetsutveckling och moderna AI-verktyg. Vi tror att AI kan göra stor skillnad för vanliga företag — om det implementeras på rätt sätt.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Story */}
-      <section className="bg-white border-b border-[#DDD9D1]">
+      <section style={{ background: C.bgWarm, borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
             <AnimatedSection direction="left">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A18] mb-6">
+                <h2 style={{ ...serif, fontSize: "clamp(28px, 3.5vw, 38px)", lineHeight: 1.08, color: C.fg, marginBottom: 28, letterSpacing: "-0.02em" }}>
                   Varför vi startade custom46
                 </h2>
-                <div className="space-y-5 text-[#6B6B65] leading-8">
-                  <p>
-                    Vi hade sett mönstret för många gånger: ett företag investerar i ett AI-projekt, konsulter
-                    lovar mycket, och ett år senare sitter lösningen oanvänd på en server någonstans.
-                  </p>
-                  <p>
-                    Problemet är nästan aldrig tekniken. Det är att lösningarna inte matchar hur verksamheten
-                    faktiskt fungerar, att personalen inte förstår hur man använder dem, eller att de är för
-                    komplexa för att underhållas.
-                  </p>
-                  <p>
-                    Vi startade custom46 för att göra det annorlunda. Ingen hajp, inga generiska demos. Bara
-                    ärligt arbete med att ta reda på vad som faktiskt kan hjälpa dig — och sedan hjälpa dig att
-                    genomföra det.
-                  </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                  {[
+                    "Vi hade sett mönstret för många gånger: ett företag investerar i ett AI-projekt, konsulter lovar mycket, och ett år senare sitter lösningen oanvänd på en server någonstans.",
+                    "Problemet är nästan aldrig tekniken. Det är att lösningarna inte matchar hur verksamheten faktiskt fungerar, att personalen inte förstår hur man använder dem, eller att de är för komplexa för att underhållas.",
+                    "Vi startade custom46 för att göra det annorlunda. Ingen hajp, inga generiska demos. Bara ärligt arbete med att ta reda på vad som faktiskt kan hjälpa dig — och sedan hjälpa dig att genomföra det.",
+                  ].map((p, i) => (
+                    <p key={i} style={{ fontSize: 14, color: C.fgMid, lineHeight: 1.8, fontWeight: 300 }}>{p}</p>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="bg-[#F7F5F0] rounded-xl border border-[#DDD9D1] p-8 md:p-10">
-                <div className="text-5xl font-bold text-[#1B3A2D] opacity-20 mb-2 leading-none">46</div>
-                <h3 className="font-bold text-[#1A1A18] text-xl mb-3">Vad betyder 46?</h3>
-                <p className="text-[#6B6B65] leading-relaxed text-sm">
-                  Sverige är ett litet land — men landets företag driver mycket av det värde som skapar välstånd
-                  här. Vi tror att AI-verktyg inte bara ska finnas tillgängliga för stora bolag med stora budgetar.
-                  custom46 är vår ambition att göra det möjligt för alla svenska företag att dra nytta av det som
-                  faktiskt fungerar.
+              <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "40px 40px" }}>
+                <div style={{ ...serif, fontSize: 72, lineHeight: 0.8, color: C.terra, opacity: 0.15, marginBottom: 16 }}>46</div>
+                <h3 style={{ ...serif, fontSize: 22, color: C.fg, marginBottom: 14 }}>Vad betyder 46?</h3>
+                <p style={{ fontSize: 13, color: C.fgMid, lineHeight: 1.75, fontWeight: 300 }}>
+                  Sverige är ett litet land — men landets företag driver mycket av det värde som skapar välstånd här. Vi tror att AI-verktyg inte bara ska finnas tillgängliga för stora bolag med stora budgetar. custom46 är vår ambition att göra det möjligt för alla svenska företag att dra nytta av det som faktiskt fungerar.
                 </p>
               </div>
             </AnimatedSection>
@@ -91,71 +99,74 @@ export default function OmOssPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-[#F7F5F0]">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <section style={{ background: C.bg, borderTop: `2px solid ${C.fg}` }}>
+        <div
+          className="max-w-6xl mx-auto"
+          style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 72, padding: "64px 24px" }}
+        >
           <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#3D6B58] mb-3">Hur vi arbetar</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A18]">Våra principer</h2>
+            <div style={{ ...serifIt, fontSize: 14, color: C.terra, paddingTop: 4 }}>Våra principer</div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
+              {values.map((v) => (
+                <div
+                  key={v.n}
+                  style={{ background: C.bg, padding: "28px 28px", transition: "background .2s" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = C.bgWarm)}
+                  onMouseLeave={e => (e.currentTarget.style.background = C.bg)}
+                >
+                  <div style={{ ...serifIt, fontSize: 11, color: C.terra, opacity: 0.55, marginBottom: 12 }}>{v.n}</div>
+                  <div style={{ ...serif, fontSize: 19, color: C.fg, marginBottom: 8, lineHeight: 1.15 }}>{v.title}</div>
+                  <div style={{ fontSize: 12.5, color: C.muted, lineHeight: 1.65, fontWeight: 300 }}>{v.body}</div>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((value, i) => (
-              <AnimatedSection key={value.title} delay={i * 0.1}>
-                <div className="bg-white rounded-xl border border-[#DDD9D1] p-7 h-full">
-                  <h3 className="font-bold text-[#1A1A18] text-lg mb-3">{value.title}</h3>
-                  <p className="text-sm text-[#6B6B65] leading-relaxed">{value.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Team / human touch */}
-      <section className="bg-white border-t border-[#DDD9D1]">
+      {/* Team */}
+      <section style={{ background: C.bgWarm, borderTop: `1px solid ${C.border}` }}>
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
           <AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A18] mb-5">
+                <h2 style={{ ...serif, fontSize: "clamp(28px, 3.5vw, 38px)", lineHeight: 1.08, color: C.fg, marginBottom: 24, letterSpacing: "-0.02em" }}>
                   Litet team, stort fokus
                 </h2>
-                <div className="space-y-5 text-[#6B6B65] leading-8">
-                  <p>
-                    Vi är ett litet och selektivt team. Det innebär att du alltid pratar med den som faktiskt
-                    gör jobbet — ingen mellankommunikation, inga projektledare som sitter på information.
-                  </p>
-                  <p>
-                    Det gör oss flexibla, men det innebär också att vi väljer våra kunder med omsorg. Vi tar
-                    hellre på oss färre uppdrag och gör dem riktigt bra.
-                  </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+                  {[
+                    "Vi är ett litet och selektivt team. Det innebär att du alltid pratar med den som faktiskt gör jobbet — ingen mellankommunikation, inga projektledare som sitter på information.",
+                    "Det gör oss flexibla, men det innebär också att vi väljer våra kunder med omsorg. Vi tar hellre på oss färre uppdrag och gör dem riktigt bra.",
+                  ].map((p, i) => (
+                    <p key={i} style={{ fontSize: 14, color: C.fgMid, lineHeight: 1.8, fontWeight: 300 }}>{p}</p>
+                  ))}
                 </div>
-                <div className="mt-7">
+                <div style={{ marginTop: 28 }}>
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#1B3A2D] text-[#F7F5F0] font-semibold hover:bg-[#244d3c] transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-sm"
+                    style={{ background: C.terra, color: "#F8F4EF", fontWeight: 500, padding: "13px 28px", transition: "background .22s" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = C.terraLt)}
+                    onMouseLeave={e => (e.currentTarget.style.background = C.terra)}
                   >
                     Ta kontakt
-                    <ArrowRight size={16} />
+                    <ArrowRight size={13} />
                   </Link>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { number: "100%", label: "Fokus på genomförande" },
-                  { number: "5–200", label: "Anställda hos våra kunder" },
-                  { number: "0", label: "Lösningar byggda på hajp" },
-                  { number: "100%", label: "Dokumenterade leveranser" },
-                ].map((stat) => (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
+                {stats.map((s) => (
                   <div
-                    key={stat.label}
-                    className="bg-[#F7F5F0] rounded-xl border border-[#DDD9D1] p-6 text-center"
+                    key={s.lbl}
+                    style={{ background: C.bgCard, padding: "28px 24px", textAlign: "center", transition: "background .2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = C.bg)}
+                    onMouseLeave={e => (e.currentTarget.style.background = C.bgCard)}
                   >
-                    <div className="text-2xl md:text-3xl font-bold text-[#1B3A2D] mb-1">{stat.number}</div>
-                    <div className="text-xs text-[#6B6B65]">{stat.label}</div>
+                    <div style={{ ...serif, fontSize: 30, color: C.terra, marginBottom: 6, letterSpacing: "-0.02em" }}>{s.val}</div>
+                    <div style={{ fontSize: 11, color: C.muted, lineHeight: 1.5, fontWeight: 300 }}>{s.lbl}</div>
                   </div>
                 ))}
               </div>
@@ -165,22 +176,24 @@ export default function OmOssPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#1B3A2D]">
+      <section style={{ background: C.bgDark }}>
         <div className="max-w-6xl mx-auto px-6 py-20 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
+            <h2 style={{ ...serif, fontSize: "clamp(30px, 4vw, 46px)", lineHeight: 1.08, color: "#EDE6DE", marginBottom: 16, maxWidth: 500, margin: "0 auto 16px", letterSpacing: "-0.02em" }}>
               Vill du veta mer om hur vi arbetar?
             </h2>
-            <p className="text-[#B8D4C8] max-w-lg mx-auto mb-8 leading-relaxed">
-              Boka ett samtal — inga förpliktelser, ingen säljtaktik. Bara en rak konversation om vad som kan
-              vara möjligt för ditt företag.
+            <p style={{ fontSize: 14, color: "#A8998E", maxWidth: 420, margin: "0 auto 36px", lineHeight: 1.75, fontWeight: 300 }}>
+              Boka ett samtal — inga förpliktelser, ingen säljtaktik. Bara en rak konversation om vad som kan vara möjligt.
             </p>
             <Link
               href="/kontakt"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md bg-[#F7F5F0] text-[#1B3A2D] font-semibold hover:bg-white transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm"
+              style={{ background: C.terra, color: "#F8F4EF", fontWeight: 500, padding: "14px 32px", transition: "background .22s" }}
+              onMouseEnter={e => (e.currentTarget.style.background = C.terraLt)}
+              onMouseLeave={e => (e.currentTarget.style.background = C.terra)}
             >
               Boka ett samtal
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Link>
           </AnimatedSection>
         </div>
