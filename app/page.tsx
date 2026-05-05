@@ -205,7 +205,7 @@ export default function HemPage() {
                   AI behöver inte vara komplext för att vara användbart
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.75, color: C.fgMid, fontWeight: 300, marginBottom: 32 }}>
-                  Tvärtom faktiskt — potentialen ligger i att optimera era utifrån era befintliga processer.
+                  Tvärtom faktiskt — potentialen ligger i att optimera utifrån era befintliga processer.
                 </p>
                 <Link
                   href="/om-oss"
@@ -218,9 +218,9 @@ export default function HemPage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 1, background: C.border, border: `1px solid ${C.border}` }}>
                 {[
-                  { val: "100%", lbl: "Fokus på genomförande" },
-                  { val: "0", lbl: "Lösningar byggda på hajp" },
-                  { val: "5–100", lbl: "Anställda hos våra kunder" },
+                  { val: "3 v", lbl: "Till driftsättning" },
+                  { val: "< 3 mån", lbl: "Typisk återbetalningstid" },
+                  { val: "0 kr", lbl: "Onödig konsulttid" },
                 ].map((s) => (
                   <div
                     key={s.lbl}

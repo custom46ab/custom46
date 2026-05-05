@@ -219,7 +219,7 @@ export default function KontaktPage() {
                 {/* Process */}
                 <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, overflow: "hidden" }}>
                   <div style={{ padding: "16px 24px", borderBottom: `1px solid ${C.border}` }}>
-                    <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Vad händer när du hör av dig?</span>
+                    <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Vad händer sen?</span>
                   </div>
                   <div>
                     {[
