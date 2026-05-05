@@ -21,7 +21,7 @@ export default function Footer() {
               custom<span style={{ color: "#A84B28" }}>46</span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ fontWeight: 300 }}>
-              Vi kartlägger var din organisation tappar tid och bygger de lösningar som faktiskt passar — utan onödig teknik.
+              Vi kartlägger var din organisation tappar tid och bygger de lösningar som faktiskt passar — utan onödigt krångel.
             </p>
           </div>
 

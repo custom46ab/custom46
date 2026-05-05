@@ -44,7 +44,7 @@ export default function HemPage() {
           {/* Left */}
           <div
             className="flex flex-col justify-between"
-            style={{ padding: "80px 56px 64px 24px", borderRight: `1px solid ${C.border}`, minHeight: "calc(100vh - 64px)" }}
+            style={{ padding: "40px 56px 64px 24px", borderRight: `1px solid ${C.border}`, minHeight: "calc(100vh - 64px)" }}
           >
             <div>
               <AnimatedSection delay={0.05}>
@@ -103,9 +103,9 @@ export default function HemPage() {
             <AnimatedSection delay={0.5}>
               <div className="flex gap-0 mt-16" style={{ borderTop: `1px solid ${C.border}`, paddingTop: 28 }}>
                 {[
-                  { val: "68%", lbl: "Tidsbesparing i snitt" },
-                  { val: "−82%", lbl: "Färre manuella fel" },
                   { val: "3 v", lbl: "Till driftsättning" },
+                  { val: "< 3 mån", lbl: "Typisk återbetalningstid" },
+                  { val: "0 kr", lbl: "Onödig konsulttid" },
                 ].map((s, i) => (
                   <div key={s.lbl} style={{ flex: 1, ...(i > 0 ? { paddingLeft: 24, borderLeft: `1px solid ${C.border}` } : {}) }}>
                     <div style={{ ...serif, fontSize: 34, lineHeight: 1, color: C.fg, marginBottom: 4, letterSpacing: "-0.02em" }}>
@@ -122,7 +122,7 @@ export default function HemPage() {
           <AnimatedSection delay={0.2} direction="right">
             <div
               className="flex flex-col gap-5 justify-center"
-              style={{ background: C.bgWarm, padding: "72px 48px", minHeight: "calc(100vh - 64px)" }}
+              style={{ background: C.bgWarm, padding: "36px 48px", minHeight: "calc(100vh - 64px)" }}
             >
               {/* Pull quote */}
               <div style={{ background: C.bgCard, borderLeft: `3px solid ${C.terra}`, padding: "36px 32px" }}>
@@ -199,13 +199,13 @@ export default function HemPage() {
               <div>
                 <div className="flex items-center gap-3 mb-8">
                   <div style={{ width: 28, height: 1.5, background: C.terra }} />
-                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: C.terra }}>Inte bara ord</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: C.terra }}>Maximera kundvärdet</span>
                 </div>
                 <h2 style={{ ...serif, fontSize: "clamp(32px, 4vw, 46px)", lineHeight: 1.05, color: C.fg, marginBottom: 20, letterSpacing: "-0.02em" }}>
                   AI behöver inte vara komplext för att vara användbart
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.75, color: C.fgMid, fontWeight: 300, marginBottom: 32 }}>
-                  Helt tvärtom faktiskt — potentialen ligger i att optimera era befintliga processer.
+                  Tvärtom faktiskt — potentialen ligger i att optimera era utifrån era befintliga processer.
                 </p>
                 <Link
                   href="/om-oss"
@@ -220,7 +220,7 @@ export default function HemPage() {
                 {[
                   { val: "100%", lbl: "Fokus på genomförande" },
                   { val: "0", lbl: "Lösningar byggda på hajp" },
-                  { val: "5–200", lbl: "Anställda hos våra kunder" },
+                  { val: "5–100", lbl: "Anställda hos våra kunder" },
                 ].map((s) => (
                   <div
                     key={s.lbl}

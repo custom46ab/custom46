@@ -19,7 +19,7 @@ const services = [
     title: "Nulägesanalys",
     tagline: "Förstå var du är innan du bestämmer vart du ska",
     description:
-      "Innan vi föreslår någon lösning vill vi förstå hur din verksamhet faktiskt fungerar. Vi kartlägger dina arbetsflöden, identifierar flaskhalsar och hittar de processer som kostar mest tid — utan att tillföra värde.",
+      "Innan vi föreslår någon lösning vill vi förstå hur din verksamhet faktiskt fungerar. Vi kartlägger dina arbetsflöden, identifierar flaskhalsar och hittar de processer som kostar mest tid.",
     includes: [
       "Intervjuer med nyckelpersoner i verksamheten",
       "Kartläggning av befintliga system och processer",
@@ -47,7 +47,7 @@ const services = [
     title: "Implementering",
     tagline: "Vi bygger det, du äger det",
     description:
-      "Vi tar hand om den tekniska implementeringen och ser till att lösningarna faktiskt fungerar i din miljö. Vi utbildar ditt team och säkerställer att allt är dokumenterat och underhållbart — du ska inte behöva ringa oss varje gång något går snett.",
+      "Vi tar hand om den tekniska implementeringen och ser till att lösningarna faktiskt fungerar i din miljö. Vi utbildar ditt team och säkerställer att allt är dokumenterat — oavsett om ni tar över driften själva eller om vi fortsätter som ett löpande stöd.",
     includes: [
       "Uppsättning och konfiguration av valda verktyg",
       "Integration med befintliga system",
@@ -146,7 +146,7 @@ export default function TjansterPage() {
               <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: 36 }}>
                 <h3 style={{ ...serif, fontSize: 22, color: C.fg, marginBottom: 12 }}>Passar detta ditt företag?</h3>
                 <p style={{ fontSize: 13, color: C.fgMid, lineHeight: 1.7, fontWeight: 300, marginBottom: 24 }}>
-                  Vi arbetar primärt med svenska SME:er — företag med 5–200 anställda som vill arbeta mer effektivt men inte har resurser för ett eget IT-team.
+                  Vi arbetar primärt med svenska SME:er — företag med 5–100 anställda som vill arbeta mer effektivt men inte har resurser för ett eget IT-team.
                 </p>
                 <Link
                   href="/kontakt"
