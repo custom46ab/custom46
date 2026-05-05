@@ -61,7 +61,7 @@ export default function KontaktPage() {
       "form-name": "kontakt",
       ...data,
     });
-    const res = await fetch("/", {
+    const res = await fetch("/netlify-form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: body.toString(),
