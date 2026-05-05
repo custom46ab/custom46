@@ -46,7 +46,7 @@ export default function OmOssPage() {
               Varför vi startade custom46
             </h1>
             <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 520, lineHeight: 1.75, fontWeight: 300 }}>
-              Vi hade sett för många AI-projekt landa fel — inte för att tekniken är svår, utan för att lösningarna inte passar verksamheten. Det ville vi göra något åt.
+              Vi såg ett tydligt värde för företag i att använda modern teknik för att förenkla vardagen — men också hur ofta det görs onödigt svårt.
             </p>
           </AnimatedSection>
         </div>
@@ -59,8 +59,9 @@ export default function OmOssPage() {
             <AnimatedSection direction="left">
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {[
-                  "Mönstret är nästan alltid detsamma: ett bolag investerar i ett AI-projekt, och ett år senare sitter lösningen oanvänd. Inte för att tekniken krånglade — utan för att den aldrig riktigt passade in i hur jobbet faktiskt görs.",
-                  "Vi startade custom46 för att jobba annorlunda. Vi börjar alltid med att förstå verksamheten — inte med att sälja en lösning vi redan har färdig. Och om svaret inte är AI säger vi det rakt ut.",
+                  "Potentialen är uppenbar — AI och automation kan frigöra tid, minska fel och låta människor fokusera på det som faktiskt kräver deras förmåga. Det gäller för stora bolag, men minst lika mycket för mindre organisationer.",
+                  "Problemet är att det ofta presenteras som något komplext, dyrt och svårt att förstå. Det skapar onödig osäkerhet och gör att många väljer att avvakta — trots att lösningarna egentligen är både tillgängliga och rimliga.",
+                  "Vi startade custom46 för att göra det enkelt och tryggt. Inte för att sälja teknik, utan för att hjälpa er hitta det som faktiskt gör skillnad i er verksamhet — och se till att det fungerar.",
                 ].map((p, i) => (
                   <p key={i} style={{ fontSize: 14, color: C.fgMid, lineHeight: 1.8, fontWeight: 300 }}>{p}</p>
                 ))}
@@ -70,10 +71,10 @@ export default function OmOssPage() {
             <AnimatedSection direction="right" delay={0.1}>
               <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "36px 36px" }}>
                 <p style={{ ...serifIt, fontSize: 18, lineHeight: 1.5, color: C.fg, marginBottom: 16 }}>
-                  Vi tar hellre på oss färre uppdrag och gör dem ordentligt.
+                  Det ska kännas tryggt att ta steget — inte som ett projekt man måste orka med.
                 </p>
                 <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7, fontWeight: 300 }}>
-                  Det innebär att du alltid pratar med den som faktiskt gör jobbet — ingen mellankommunikation, inga projektledare som sitter på information.
+                  Vi håller det enkelt, kommunicerar tydligt och ser till att ni förstår vad ni får — innan ni bestämmer er för något.
                 </p>
               </div>
             </AnimatedSection>
