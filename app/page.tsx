@@ -23,7 +23,7 @@ const serifIt = { fontFamily: "var(--font-display), Georgia, serif", fontStyle: 
 
 const steps = [
   { num: "I", title: "Nulägesanalys", body: "Vi kartlägger era processer och identifierar var effektiviteten brister." },
-  { num: "II", title: "Lösningsförslag", body: "Konkreta förslag anpassade efter just er — inte generiska verktyg." },
+  { num: "II", title: "Lösningsförslag", body: "Konkreta förslag anpassade efter era behov och era processer." },
   { num: "III", title: "Implementering", body: "Vi bygger, driftsätter och ser till att det faktiskt används." },
 ];
 
@@ -60,16 +60,16 @@ export default function HemPage() {
                 <h1
                   style={{ ...serif, fontSize: "clamp(56px, 7vw, 82px)", lineHeight: 0.93, letterSpacing: "-0.025em", color: C.fg, marginBottom: 32 }}
                 >
-                  Auto&shy;mation<br />
-                  som<br />
-                  <span style={{ ...serifIt, color: C.terra }}>faktiskt</span><br />
-                  håller.
+                  Tid<br />
+                  tillbaka<br />
+                  till det som<br />
+                  <span style={{ ...serifIt, color: C.terra }}>spelar roll.</span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={0.28}>
                 <p style={{ fontSize: 15.5, lineHeight: 1.76, color: C.fgMid, maxWidth: 390, fontWeight: 300, marginBottom: 48 }}>
-                  Vi kartlägger var din organisation tappar tid och bygger de lösningar som faktiskt passar — utan onödig teknik.
+                  Vi kartlägger var er organisation tappar tid och implementerar lösningar som passar — utan onödigt krångel.
                 </p>
               </AnimatedSection>
 
@@ -205,7 +205,7 @@ export default function HemPage() {
                   AI behöver inte vara komplext för att vara användbart
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.75, color: C.fgMid, fontWeight: 300, marginBottom: 32 }}>
-                  De flesta AI-satsningar misslyckas inte för att tekniken är svår — utan för att lösningarna inte passar hur verksamheten faktiskt ser ut.
+                  Helt tvärtom faktiskt — potentialen ligger i att optimera era befintliga processer.
                 </p>
                 <Link
                   href="/om-oss"
@@ -254,7 +254,7 @@ export default function HemPage() {
               Låt oss prata om vad som faktiskt kan förändras
             </h2>
             <p style={{ fontSize: 15, color: "#A8998E", maxWidth: 440, margin: "0 auto 40px", lineHeight: 1.75, fontWeight: 300 }}>
-              Boka ett kostnadsfritt samtal — vi ställer frågor, lyssnar och ger en ärlig bild av vad automation kan göra för er.
+              Boka ett kostnadsfritt samtal — vi ställer frågor, lyssnar och ger en ärlig bild av vad AI och automation kan göra för er.
             </p>
             <Link
               href="/kontakt"

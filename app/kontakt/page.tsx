@@ -81,10 +81,10 @@ export default function KontaktPage() {
               <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: C.terra }}>Kontakt</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(40px, 5vw, 58px)", lineHeight: 1.0, letterSpacing: "-0.025em", color: C.fg, marginBottom: 20 }}>
-              Låt oss prata
+              Hör av dig
             </h1>
             <p style={{ fontSize: 16, color: C.fgMid, maxWidth: 480, lineHeight: 1.75, fontWeight: 300 }}>
-              Fyll i formuläret nedan så hör vi av oss inom en vardag. Inget säljtrick — bara en rak konversation.
+              Fyll i formuläret så återkommer vi inom kort.
             </p>
           </AnimatedSection>
         </div>
@@ -101,7 +101,7 @@ export default function KontaktPage() {
                 <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "56px 48px", textAlign: "center" }}>
                   <div style={{ ...serif, fontSize: 18, color: C.fg, marginBottom: 12 }}>Tack för ditt meddelande</div>
                   <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7, fontWeight: 300 }}>
-                    Vi läser alla förfrågningar och återkommer till dig inom en vardag.
+                    Vi återkommer till dig inom kort.
                   </p>
                 </div>
               ) : (
@@ -223,9 +223,9 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     {[
-                      "Vi läser ditt meddelande och återkommer inom en vardag",
-                      "Vi bokar ett kort samtal för att förstå ditt behov",
-                      "Om det verkar finnas en bra match presenterar vi ett förslag",
+                      "Vi läser ditt meddelande och återkommer inom kort",
+                      "Vi bokar ett samtal för att förstå vad du behöver",
+                      "Passar vi varandra presenterar vi ett konkret förslag",
                     ].map((step, i) => (
                       <div
                         key={i}
@@ -243,9 +243,9 @@ export default function KontaktPage() {
 
                 {/* Promise card */}
                 <div style={{ background: C.bgDark, padding: "28px 28px" }}>
-                  <div style={{ ...serif, fontSize: 18, color: "#EDE6DE", marginBottom: 10 }}>Inget som binder dig</div>
+                  <div style={{ ...serif, fontSize: 18, color: "#EDE6DE", marginBottom: 10 }}>Inga förpliktelser</div>
                   <p style={{ fontSize: 13, color: "#A8998E", lineHeight: 1.7, fontWeight: 300 }}>
-                    Det första samtalet är alltid kostnadsfritt och utan förpliktelser. Vi berättar vad vi kan erbjuda — du bestämmer om det känns rätt.
+                    Det första samtalet är självklart alltid kostnadsfritt och utan förpliktelser. Vi berättar vad vi kan erbjuda — du bestämmer om det känns rätt.
                   </p>
                 </div>
               </div>

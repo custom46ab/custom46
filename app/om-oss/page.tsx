@@ -16,18 +16,13 @@ const serifIt = { fontFamily: "var(--font-display), Georgia, serif", fontStyle: 
 const values = [
   {
     n: "i.",
-    title: "Ärlighet framför imponering",
+    title: "Ärlighet framför att imponera",
     body: "Vi berättar vad som faktiskt är möjligt — inte vad som låter bäst i ett säljsamtal. Om AI inte är rätt lösning för dig just nu säger vi det.",
   },
   {
     n: "ii.",
     title: "Enkelhet som princip",
     body: "Den bästa lösningen är den enklaste som faktiskt fungerar. Vi väljer alltid bort onödig komplexitet — den kostar mer och ger sällan mer värde.",
-  },
-  {
-    n: "iii.",
-    title: "Ditt ägarskap",
-    body: "Lösningarna vi bygger ska du kunna äga, förstå och underhålla. Vi dokumenterar allt och utbildar ditt team — du ska inte vara beroende av oss i det löpande.",
   },
   {
     n: "iv.",
@@ -87,10 +82,9 @@ export default function OmOssPage() {
 
             <AnimatedSection direction="right" delay={0.1}>
               <div style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderLeft: `3px solid ${C.terra}`, padding: "40px 40px" }}>
-                <div style={{ ...serif, fontSize: 72, lineHeight: 0.8, color: C.terra, opacity: 0.15, marginBottom: 16 }}>46</div>
-                <h3 style={{ ...serif, fontSize: 22, color: C.fg, marginBottom: 14 }}>Vad betyder 46?</h3>
+                <h3 style={{ ...serif, fontSize: 22, color: C.fg, marginBottom: 14 }}>Inte som andra konsulter</h3>
                 <p style={{ fontSize: 13, color: C.fgMid, lineHeight: 1.75, fontWeight: 300 }}>
-                  Sverige är ett litet land — men landets företag driver mycket av det värde som skapar välstånd här. Vi tror att AI-verktyg inte bara ska finnas tillgängliga för stora bolag med stora budgetar. custom46 är vår ambition att göra det möjligt för alla svenska företag att dra nytta av det som faktiskt fungerar.
+                  De flesta AI-konsulter säljer teknik. Vi säljer resultat. Det betyder att vi börjar med ert problem — inte med en lösning vi redan vill sälja. Om svaret inte är AI säger vi det.
                 </p>
               </div>
             </AnimatedSection>
