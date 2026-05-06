@@ -50,6 +50,7 @@ const labelStyle: React.CSSProperties = {
 
 export default function KontaktPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -57,17 +58,22 @@ export default function KontaktPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    const body = new URLSearchParams({
-      "form-name": "kontakt",
-      ...data,
-    });
-    const res = await fetch("/netlify-form.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: body.toString(),
-    });
-    if (!res.ok) throw new Error("Formuläret kunde inte skickas");
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      const body = new URLSearchParams({
+        "form-name": "kontakt",
+        ...data,
+      });
+      const res = await fetch("/netlify-form.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Något gick fel. Kontrollera din anslutning och försök igen.");
+    }
   };
 
   return (
@@ -172,6 +178,12 @@ export default function KontaktPage() {
                       <p style={{ marginTop: 6, fontSize: 11, color: "#B94040" }}>{errors.message.message}</p>
                     )}
                   </div>
+
+                  {submitError && (
+                    <p style={{ marginBottom: 16, fontSize: 12, color: "#B94040", lineHeight: 1.5 }}>
+                      {submitError}
+                    </p>
+                  )}
 
                   <button
                     type="submit"
